@@ -9,17 +9,17 @@ namespace BoxesManger.DataStructers
 {
     internal static class GenericsExtension
     {
-        internal static bool SearchSmallestValue<T>(this BST<T> bst, T value, out T founded) where T : IComparable<T>
+        internal static bool SearchBiggerOrEqueleThan<T>(this BST<T> bst, T value, out T founded) where T : IComparable<T>
         {
             founded = default(T);
             if (bst.Search(value, out founded))
                 return true;
-            if (bst.SearchSmallestBigger(value, out founded))
+            if (bst.SearchBiggerThan(value, out founded))
                 return true;
             return false;
         }
 
-        internal static bool SearchSmallestBigger<T>(this BST<T> bst, T value, out T founded) where T : IComparable<T>
+        internal static bool SearchBiggerThan<T>(this BST<T> bst, T value, out T founded) where T : IComparable<T>
         {
             founded = default(T);
             var tmp = bst.Root;
@@ -38,6 +38,5 @@ namespace BoxesManger.DataStructers
             if (founded != null) return true;
             else return false;
         }
-
     }
 }

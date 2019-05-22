@@ -103,10 +103,10 @@ namespace BoxesManger.DataStructers
                 return false;
             }
             BoxBase val = new BoxBase(x, true);
-            _mainTree.SearchSmallestValue(val, out BoxBase founded);
+            _mainTree.SearchBiggerOrEqueleThan(val, out BoxBase founded);
             while (founded != null)
             {
-                if (founded.HeightTree.SearchSmallestValue(new BoxHeight(y), out BoxHeight foundedHeight))
+                if (founded.HeightTree.SearchBiggerOrEqueleThan(new BoxHeight(y), out BoxHeight foundedHeight))
                 {
                     xx = founded.BaseSize;
                     yy = foundedHeight.Height;
@@ -131,7 +131,7 @@ namespace BoxesManger.DataStructers
                     });
                     return true;
                 }
-                if (_mainTree.SearchSmallestBigger(founded, out BoxBase newVal))
+                if (_mainTree.SearchBiggerThan(founded, out BoxBase newVal))
                     founded = newVal;
                 else
                 {
