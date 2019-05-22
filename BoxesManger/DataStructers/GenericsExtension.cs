@@ -9,7 +9,7 @@ namespace BoxesManger.DataStructers
 {
     internal static class GenericsExtension
     {
-        internal static bool SearchBiggerOrEqueleThan<T>(this BST<T> bst, T value, out T founded) where T : IComparable<T>
+        internal static bool SearchBiggerOrEquelTo<T>(this BST<T> bst, T value, out T founded) where T : IComparable<T>
         {
             founded = default(T);
             if (bst.Search(value, out founded))

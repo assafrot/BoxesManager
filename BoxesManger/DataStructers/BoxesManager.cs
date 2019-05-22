@@ -103,10 +103,10 @@ namespace BoxesManger.DataStructers
                 return false;
             }
             BoxBase val = new BoxBase(x, true);
-            _mainTree.SearchBiggerOrEqueleThan(val, out BoxBase founded);
+            _mainTree.SearchBiggerOrEquelTo(val, out BoxBase founded);
             while (founded != null)
             {
-                if (founded.HeightTree.SearchBiggerOrEqueleThan(new BoxHeight(y), out BoxHeight foundedHeight))
+                if (founded.HeightTree.SearchBiggerOrEquelTo(new BoxHeight(y), out BoxHeight foundedHeight))
                 {
                     xx = founded.BaseSize;
                     yy = foundedHeight.Height;
@@ -125,7 +125,7 @@ namespace BoxesManger.DataStructers
                     if (foundedHeight.Count < _lowAmountAlert)
                         _notifier.OnLowSuplly($"Boxes stock of ({founded.BaseSize},{foundedHeight.Height}) is low, please renew the supply");
                     //update time;
-                    _boxesList.UpdateNode(foundedHeight.DataNode, dn =>
+                    _boxesList.ModifyNode(foundedHeight.DataNode, dn =>
                     {
                         dn.data.LastUpdate = DateTime.Now;
                     });

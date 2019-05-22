@@ -2,7 +2,6 @@
 
 namespace BoxesManger.DataStructers.Generics
 {
-    delegate void Invoke<T>(T item);
     class BST<T> where T : IComparable<T>
     {
         public BST()

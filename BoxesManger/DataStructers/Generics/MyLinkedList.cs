@@ -4,6 +4,8 @@ using System.Collections.Generic;
 
 namespace BoxesManger.DataStructers.Generics
 {
+    delegate void Invoke<T>(T item);
+
     class MyLinkedList<T> : IEnumerable<T>
     {
         public Node Start;
@@ -22,18 +24,18 @@ namespace BoxesManger.DataStructers.Generics
             End = tmp;
         }
 
-        internal void UpdateNode(Node node, Invoke<Node> callback)
+        internal void ModifyNode(Node node, Invoke<Node> modify)
         {
             if (End != Start)
             {
                 RemoveNode(node, out Node tmp);
-                callback(tmp);
+                modify(tmp);
                 End.next = tmp;
                 tmp.prev = End;
                 End = tmp;
             }
             else
-                callback(End);
+                modify(End);
         }
 
         internal bool RemoveFirst(out Node saveDeleted)
