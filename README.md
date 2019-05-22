@@ -1,2 +1,2 @@
 # BoxesManager
-Data Structures Exercise  
+Data Structures Exercise  - full description in PDF
