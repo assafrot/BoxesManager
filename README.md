@@ -1,2 +1,2 @@
-# BoxesMaanger
+# BoxesManager
 Data Structures Exercise  
